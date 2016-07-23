@@ -17,7 +17,7 @@ namespace AdvancedCoroutines.Samples.Scripts
         public void Start()
         {
             transform = GetComponent<Transform>();
-            CoroutineManager.StartCoroutine(enumerator(), this);
+            CoroutineManager.StartCoroutine(enumerator(), gameObject);
         }
 
         private IEnumerator enumerator()

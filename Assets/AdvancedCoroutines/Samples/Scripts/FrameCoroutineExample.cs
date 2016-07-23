@@ -22,7 +22,7 @@ namespace AdvancedCoroutines.Samples.Scripts
         	frameIndex = -1;
             ResultLabel.text = "";
             _testIsEnded = false;
-            CoroutineManager.StartCoroutine(WaitForEndOfFrameCoroutine(), this);
+            CoroutineManager.StartCoroutine(WaitForEndOfFrameCoroutine(), gameObject);
         }
 
         private void Update()
@@ -49,8 +49,8 @@ namespace AdvancedCoroutines.Samples.Scripts
             ResultLabel.text += "Frame [" + frameIndex + "] [yield return new Wait(0.1f)] started after 0.1 seconds\n";
             yield return null;
             ResultLabel.text += "Frame [" + frameIndex + "] [yield return null] skipped one frame\n";
-            yield return new Wait(Wait.WaitType.ForEndOfUpdate);
-            ResultLabel.text += "Frame [" + frameIndex + "] [yield return new Wait(Wait.WaitType.ForEndOfUpdate)] working after Update in LateUpdate\n";
+            //yield return new Wait(Wait.WaitType.ForEndOfUpdate);
+            //ResultLabel.text += "Frame [" + frameIndex + "] [yield return new Wait(Wait.WaitType.ForEndOfUpdate)] working after Update in LateUpdate\n";
             yield return new Wait(Wait.WaitType.ForEndOfFrame);
             ResultLabel.text += "Frame [" + frameIndex + "] [yield return new Wait(Wait.WaitType.ForEndOfFrame)] I'm working on the end of frame\n";
             _testIsEnded = true;

@@ -41,7 +41,7 @@ namespace AdvancedCoroutines.Samples.Scripts
             if(!Routine.IsNull(_standaloneRoutine)) return;
             //Start coroutine through non-MonoBehaviour class
             _standaloneRoutine = _nonMonoClass.StartStandaloneCoroutine(TimeCoroutineNonStandalone());
-            _routine = CoroutineManager.StartCoroutine(TimeCoroutineStandalone(), this);
+            _routine = CoroutineManager.StartCoroutine(TimeCoroutineStandalone(), gameObject);
             _startDateTimeNonStanalone = DateTime.UtcNow;
             _startDateTimeStandalone = DateTime.UtcNow;
 

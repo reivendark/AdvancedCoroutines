@@ -83,10 +83,10 @@ namespace AdvancedCoroutines
         }
 
         /// <summary>
-        /// Start coroutine attached to certain 'MonoBehaviour'. Can be stopped by StopCoroutine() and StopAllCoroutines()
+        /// Start coroutine attached to certain 'object'. Can be stopped by StopCoroutine() and StopAllCoroutines()
         /// </summary>
         /// <param name="enumerator">Method returning 'IEnumerator' in most cases</param>
-        /// <param name="monoBehaviour">MonoBehaviour which StartCoroutine was executed from. 'this' in most cases</param>
+        /// <param name="o">object which StartCoroutine was executed from. gameObject for example</param>
         /// <returns>New Routine object</returns>
         /// /// <example>
         /// <code>
@@ -97,12 +97,12 @@ namespace AdvancedCoroutines
         ///     yield return new Wait(Wait.WaitType.ForNextFrame);
         /// }
         /// 
-        /// StartCoroutine(CoroutineMethod(), this);
+        /// StartCoroutine(CoroutineMethod(), gameObject);
         /// </code>
         /// </example>
-        public static Routine StartCoroutine(IEnumerator enumerator, MonoBehaviour monoBehaviour)
+        public static Routine StartCoroutine(IEnumerator enumerator, object o)
         {
-            Routine routine = _dll.StartCoroutine(enumerator, monoBehaviour);
+            Routine routine = _dll.StartCoroutine(enumerator, o);
             if(routine == null) return null;
 
 #if(ADVANCED_COROUTINES_STAT)
@@ -121,12 +121,12 @@ namespace AdvancedCoroutines
         }
 
         /// <summary>
-        /// Stop all coroutines executed from certain MonoBehavior
+        /// Stop all coroutines executed from certain GameObject
         /// </summary>
-        /// <param name="monoBehaviour"></param>
-        public static void StopAllCoroutines(MonoBehaviour monoBehaviour)
+        /// <param name="o">object which coroutines was executed from. gameObject for example</param>
+        public static void StopAllCoroutines(object o)
         {
-            _dll.StopAllCoroutines(monoBehaviour);
+            _dll.StopAllCoroutines(o);
         }
     }
 }

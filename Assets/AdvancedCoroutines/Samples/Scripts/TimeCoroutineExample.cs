@@ -29,7 +29,7 @@ namespace AdvancedCoroutines.Samples.Scripts
         {
             if(!Routine.IsNull(_workingRoutine)) return;
 
-            _workingRoutine = CoroutineManager.StartCoroutine(TimeCoroutine(), this);
+            _workingRoutine = CoroutineManager.StartCoroutine("TimeCoroutine", gameObject);
             PauseResumeBtn.enabled = true;
             _startDateTime = DateTime.UtcNow;
         }

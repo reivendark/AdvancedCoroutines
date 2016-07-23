@@ -14,14 +14,14 @@ namespace AdvancedCoroutines.Samples.Scripts
 
         public void StartTest()
         {
-            _r1 = CoroutineManager.StartCoroutine(TestCoroutine1(), this);
-            _r2 = CoroutineManager.StartCoroutine(TestCoroutine2(), this);
-            _r3 = CoroutineManager.StartCoroutine(TestCoroutine3(), this);
+            _r1 = CoroutineManager.StartCoroutine(TestCoroutine1(), gameObject);
+            _r2 = CoroutineManager.StartCoroutine(TestCoroutine2(), gameObject);
+            _r3 = CoroutineManager.StartCoroutine(TestCoroutine3(), gameObject);
         }
 
         public void StopTest()
         {
-            CoroutineManager.StopAllCoroutines(this);
+            CoroutineManager.StopAllCoroutines(gameObject);
             if(Routine.IsNull(_r1) && Routine.IsNull(_r2) && Routine.IsNull(_r3))
             {
                 ResultText.text = "All coroutines stopped";
