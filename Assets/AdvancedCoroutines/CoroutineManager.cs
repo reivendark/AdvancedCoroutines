@@ -100,7 +100,7 @@ namespace AdvancedCoroutines
         /// StartCoroutine(CoroutineMethod(), gameObject);
         /// </code>
         /// </example>
-        public static Routine StartCoroutine(IEnumerator enumerator, object o)
+        public static Routine StartCoroutine(IEnumerator enumerator, GameObject o)
         {
             Routine routine = _dll.StartCoroutine(enumerator, o);
             if(routine == null) return null;
